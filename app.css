@@ -9,7 +9,8 @@
 }
 
 * {
-    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
 }
 
 html, body {
@@ -30,6 +31,8 @@ a, a:visited, a:hover, a:active {
 }
 
 .main-screen {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
 
@@ -38,8 +41,13 @@ a, a:visited, a:hover, a:active {
     bottom: 0;
     left: 0;
 
-    flex-direction: column;
-    justify-content: space-between;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .hint-picture { height: 40%; }
@@ -47,9 +55,17 @@ a, a:visited, a:hover, a:active {
 .keyboard     { height: 40%; }
 
 .hint-picture {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+
+    -webkit-align-items: flex-end;
+        -ms-flex-align: end;
+            align-items: flex-end;
 
     background-size: cover;
     background-image: url(data/images/robots.jpg);
@@ -109,10 +125,17 @@ a, a:visited, a:hover, a:active {
 }
 
 .keyboard {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
 
-    flex-direction: column;
-    justify-content: space-around;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
 
     text-align: center;
     background-color: black;
@@ -120,17 +143,33 @@ a, a:visited, a:hover, a:active {
 }
 
 .keyboard-row {
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     height: 22%;
     margin: 2px 5px;
-    flex-direction: row;
-    justify-content: space-between;
+
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 }
 
 .keyboard-row a {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     width: 23%;
 
