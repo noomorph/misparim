@@ -1,5 +1,10 @@
 @font-face {
     font-family: "Possesed";
+    src: url("fonts/possesed.woff")
+}
+
+@font-face {
+    font-family: "Possesed";
     src: url("fonts/possesed.ttf")
 }
 
