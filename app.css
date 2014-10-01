@@ -20,14 +20,28 @@ html, body {
 }
 
 body {
+    display: none;
+
     font-family: Possesed, sans-serif;
     font-size: 24pt;
     color: white;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.ready {
+    display: initial;
 }
 
 a, a:visited, a:hover, a:active {
     text-decoration: none;
     color: inherit;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .main-screen {
@@ -68,7 +82,6 @@ a, a:visited, a:hover, a:active {
             align-items: flex-end;
 
     background-size: cover;
-    background-image: url(data/images/robots.jpg);
 }
 
 .hint-number {
@@ -108,10 +121,6 @@ a, a:visited, a:hover, a:active {
     color: #333;
 }
 
-.hint {
-    color: #333;
-}
-
 .check-result {
     padding-right: 1em;
 }
@@ -129,61 +138,44 @@ a, a:visited, a:hover, a:active {
     display: -ms-flexbox;
     display: flex;
 
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-
-    text-align: center;
-    background-color: black;
-    padding: 0.25em 0 0 0;
-}
-
-.keyboard-row {
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    height: 22%;
-    margin: 2px 5px;
-
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
             flex-direction: row;
 
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
+
+    text-align: center;
+    background-color: #eee;
+    padding-top: 2px;
 }
 
-.keyboard-row a {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+.keyboard a {
+    display: inline-block;
+    min-width: 23%;
+    margin: 3px;
+    font-size: 0.75em;
+    line-height: 2em;
+    background-color: #999;
+    border-radius: 20px;
 
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-
-    width: 23%;
-
-    background-color: #333;
+    -webkit-transition: opacity 0.3s;
+            transition: opacity 0.3s;
 }
 
 .gone {
     opacity: 0;
 }
 
-.keyboard-row > .enter {
-    background-color: #060;
+.keyboard .enter {
+    background-color: #4a4;
 }
 
-.keyboard-row > .backspace {
-    background-color: #600;
+.keyboard .backspace {
+    background-color: #f55;
 }

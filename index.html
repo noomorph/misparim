@@ -8,65 +8,35 @@
     <title>Misparim - Numbers</title>
     <link rel="stylesheet" href="app.css">
 </head>
-<body>
-    <div class="main-screen">
-        <div class="hint-picture">
-            <span class="hint-number">
+<body data-bind="css: { ready: true }">
+    <div class="main-screen" data-bind="with: currentWord">
+        <div class="hint-picture" data-bind="style: { backgroundImage: image }">
+            <span class="hint-number" data-bind="text: number">
                 3
             </span>
         </div>
         <div class="word-checker">
             <div class="user-input">
-                <span class="actual-input">
-                    <s>&#1513;&#1500;&#1493;&#1513;</s>
+                <span class="actual-input" data-bind="text: enteredText">
                 </span>
-                <span class="hint">
-                    &#1512;&#1493;&#1489;&#1493;&#1496;&#1497;&#1501;
+                <span class="hint" data-bind="text: hint">
                 </span>
             </div>
-            <div class="check-result check-right" style="display: none">
-                &#1504;&#1499;&#1493;&#1503;! :)
-            </div>
-            <div class="check-result check-wrong">
-                &#1513;&#1500;&#1493;&#1513;&#1492;
+            <div class="check-result">
+                <span class="check-right" data-bind="style: { display: right() === true ? 'initial' : 'none' }">
+                    &#1504;&#1499;&#1493;&#1503;! :)
+                </span>
+                <span class="check-wrong" data-bind="text: word, style: { display: right() === false  ? 'initial' : 'none'}">
+                </span>
             </div>
         </div>
 
-        <div class="keyboard">
-            <div class="keyboard-row">
-                <a href="#11">&#1488;</a>
-                <a class="gone" href="#12">&#1489;</a>
-                <a class="gone" href="#13">&#1490;</a>
-                <a class="gone" href="#14">&#1491;</a>
-            </div>
-                       
-            <div class="keyboard-row">
-                <a href="#21">&#1492;</a>
-                <a class="gone" href="#22">&#1493;</a>
-                <a href="#23">&#1494;</a>
-                <a href="#24">&#1495;</a>
-            </div>
-                           
-            <div class="keyboard-row">
-                <a href="#31">&#1496;</a>
-                <a href="#32">&#1497;</a>
-                <a class="gone" href="#33">&#1498;</a>
-                <a class="backspace" href="#34">
-                    &#9224;
-                </a>
-            </div>
-
-            <div class="keyboard-row">
-                <a href="#41">&#1500;</a>
-                <a href="#42">&#1501;</a>
-                <a href="#43">&#1502;</a>
-                <a class="enter" href="#44">
-                    &#9094;
-                </a>
-            </div>
+        <div class="keyboard" data-bind="foreach: keyboardLetters()">
+            <a href="#" data-bind="text: letter, click: click, css: { gone: isHidden, enter: isEnter, backspace: isBackSpace }"></a>
         </div>
     </div>
 
+    <script src="js/knockout-3.2.0.debug.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
