@@ -64,9 +64,13 @@ a, a:visited, a:hover, a:active {
             justify-content: space-between;
 }
 
-.hint-picture { height: 40%; }
-.word-checker { height: 20%; }
-.keyboard     { height: 40%; }
+.hint-picture {
+    height: -webkit-calc(100% - 12em);
+    height: calc(100% - 12em);
+}
+
+.word-checker { height: 4em; }
+.keyboard     { height: 8em; }
 
 .hint-picture {
     display: -webkit-flex;
@@ -134,48 +138,55 @@ a, a:visited, a:hover, a:active {
 }
 
 .keyboard {
+    position: relative;
+    text-align: center;
+    background-color: #eee;
+}
+
+.keyboard a {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
 
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
 
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-
-    text-align: center;
-    background-color: #eee;
-    padding-top: 2px;
-}
-
-.keyboard a {
-    display: inline-block;
-    min-width: 23%;
-    margin: 3px;
-    font-size: 0.75em;
-    line-height: 2em;
     background-color: #999;
     border-radius: 20px;
+    font-size: 0.6em/1.75em;
+    width: 21%;
+    height: 21%;
+    position: absolute;
 
     -webkit-transition: opacity 0.3s;
             transition: opacity 0.3s;
 }
 
-.gone {
-    opacity: 0;
-}
+.keyboard a:nth-child(1) { top: 2%; left: 2%; }
+.keyboard a:nth-child(2) { top: 2%; left: 27%; }
+.keyboard a:nth-child(3) { top: 2%; left: 52%; }
+.keyboard a:nth-child(4) { top: 2%; left: 77%; }
 
-.keyboard .enter {
-    background-color: #4a4;
-}
+.keyboard a:nth-child(5) { top: 27%; left: 2%; }
+.keyboard a:nth-child(6) { top: 27%; left: 27%; }
+.keyboard a:nth-child(7) { top: 27%; left: 52%; }
+.keyboard a:nth-child(8) { top: 27%; left: 77%; }
 
-.keyboard .backspace {
-    background-color: #f55;
-}
+.keyboard a:nth-child(9)  { top: 52%; left: 2%; }
+.keyboard a:nth-child(10) { top: 52%; left: 27%; }
+.keyboard a:nth-child(11) { top: 52%; left: 52%; }
+.keyboard a:nth-child(12) { top: 52%; left: 77%; }
+
+.keyboard a:nth-child(13) { top: 77%; left: 2%; }
+.keyboard a:nth-child(14) { top: 77%; left: 27%; }
+.keyboard a:nth-child(15) { top: 77%; left: 52%; }
+.keyboard a:nth-child(16) { top: 77%; left: 77%; }
+
+.keyboard a.hidden    { opacity: 0 }
+.keyboard a.enter     { background-color: #4a4; }
+.keyboard a.backspace { background-color: #f55; }
